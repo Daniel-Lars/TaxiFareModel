@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/danielwendel/code/Daniel-Lars/TaxiFareModel/mlruns/1/909a95e0233646ed95091dba85c71593/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+name: ''
+run_id: 909a95e0233646ed95091dba85c71593
+run_uuid: 909a95e0233646ed95091dba85c71593
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1639754013375
+status: 1
+tags: []
+user_id: unknown
