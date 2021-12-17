@@ -1,10 +1,8 @@
 # Data analysis
-- Document here the project: TaxiFareModel
-- Description: Project Description
+- Document here the project: TaxiFareModel - price prediction 
+- Description: TaxiFareModel is based on the kaggle dataset https://www.kaggle.com/c/new-york-city-taxi-fare-prediction/overview . This is a challenge from the Le Wagon bootcamp with the focus to go from an initial notebook, used for data exploration to a python package. 
 - Data Source:
 - Type of analysis:
-
-Please document the project the better you can.
 
 # Startup the project
 
