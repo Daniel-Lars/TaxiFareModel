@@ -1,6 +1,7 @@
 # imports
 from memoized_property import memoized_property
 import mlflow
+import joblib
 from mlflow.tracking import MlflowClient
 from TaxiFareModel.data import clean_data, get_data
 from sklearn.linear_model import LinearRegression
@@ -10,11 +11,13 @@ from sklearn.pipeline import Pipeline
 from sklearn.model_selection import train_test_split
 from TaxiFareModel.encoders import DistanceTransformer, TimeFeaturesEncoder
 from TaxiFareModel.utils import compute_rmse
+from google.cloud import storage
 
 
 MLFLOW_URI = "https://mlflow.lewagon.co/"
 EXPERIMENT_NAME = "[NL] [AMS] [Daniel]  + V1"
-
+BUCKET_NAME = 'wagon-data-745-daniel-1'
+STORAGE_LOCATION = 'models/TaxiFareModel/model.joblib'
 
 
 class Trainer():
@@ -98,6 +101,35 @@ class Trainer():
 
 
 
+
+    def upload_model_to_gcp(self):
+
+        client = storage.Client()
+
+        bucket = client.bucket(BUCKET_NAME)
+
+        blob = bucket.blob(STORAGE_LOCATION)
+
+        blob.upload_from_filename('model.joblib')
+
+
+    def save_model(self):
+        """method that saves the model into a .joblib file and uploads it on Google Storage /models folder
+        HINTS : use joblib library and google-cloud-storage"""
+
+        # saving the trained model to disk is mandatory to then beeing able to upload it to storage
+        # Implement here
+        joblib.dump(self.pipeline, 'model.joblib')
+        print("saved model.joblib locally")
+
+        # Implement here
+        self.upload_model_to_gcp()
+
+        print(
+            f"uploaded model.joblib to gcp cloud storage under \n => {STORAGE_LOCATION}"
+        )
+
+
 if __name__ == "__main__":
 
     # get data
@@ -116,3 +148,4 @@ if __name__ == "__main__":
     rmse = trainer.evaluate(X_test,y_test)
     # evaluate
     print(f"rmse: {rmse}")
+    trainer.save_model()

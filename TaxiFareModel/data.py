@@ -1,11 +1,20 @@
+from google.cloud import storage
 import pandas as pd
+from sklearn import linear_model
+import numpy as np
+import joblib
 
+BUCKET_NAME = 'wagon-data-745-daniel-1'
+BUCKET_TRAIN_DATA_PATH = 'data/train_1k.csv'
+MODEL_NAME = 'taxifare'
+MODEL_VERSION = 'v1'
 AWS_BUCKET_PATH = "s3://wagon-public-datasets/taxi-fare-train.csv"
 
 
-def get_data(nrows=10_000):
-    '''returns a DataFrame with nrows from s3 bucket'''
-    df = pd.read_csv(AWS_BUCKET_PATH, nrows=nrows)
+def get_data():
+    """method to get the training data (or a portion of it) from google cloud bucket"""
+    df = pd.read_csv(f"gs://{BUCKET_NAME}/{BUCKET_TRAIN_DATA_PATH}",
+                     nrows=1000)
     return df
 
 

@@ -1,10 +1,6 @@
 import pandas as pd
-
 from sklearn.base import BaseEstimator, TransformerMixin
-from utils import haversine_vectorized
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.compose import ColumnTransformer
+from TaxiFareModel.utils import haversine_vectorized
 
 
 
