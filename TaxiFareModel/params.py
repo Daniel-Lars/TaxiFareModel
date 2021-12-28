@@ -1,0 +1,9 @@
+MODEL_NAME = 'taxifare'
+BUCKET_NAME = 'wagon-data-745-daniel-1'
+BUCKET_TRAIN_DATA_PATH = 'data/train_1k.csv'
+MODEL_NAME = 'taxifare'
+MODEL_VERSION = 'v1'
+AWS_BUCKET_PATH = "s3://wagon-public-datasets/taxi-fare-train.csv"
+MLFLOW_URI = "https://mlflow.lewagon.co/"
+EXPERIMENT_NAME = "[NL] [AMS] [Daniel]  + V1"
+STORAGE_LOCATION = 'models/TaxiFareModel/model.joblib'

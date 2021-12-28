@@ -13,11 +13,13 @@ from TaxiFareModel.encoders import DistanceTransformer, TimeFeaturesEncoder
 from TaxiFareModel.utils import compute_rmse
 from google.cloud import storage
 
+from TaxiFareModel.params import MLFLOW_URI, EXPERIMENT_NAME, BUCKET_NAME, STORAGE_LOCATION
 
-MLFLOW_URI = "https://mlflow.lewagon.co/"
-EXPERIMENT_NAME = "[NL] [AMS] [Daniel]  + V1"
-BUCKET_NAME = 'wagon-data-745-daniel-1'
-STORAGE_LOCATION = 'models/TaxiFareModel/model.joblib'
+
+#MLFLOW_URI = "https://mlflow.lewagon.co/"
+#EXPERIMENT_NAME = "[NL] [AMS] [Daniel]  + V1"
+#BUCKET_NAME = 'wagon-data-745-daniel-1'
+#STORAGE_LOCATION = 'models/TaxiFareModel/model.joblib'
 
 
 class Trainer():
